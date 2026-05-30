@@ -479,7 +479,7 @@ if question:  # FIX: ALL logic below is inside this block
 
     prompt = f"""
 Answer using ONLY the information present in the context.
-Do not use outside knowledge.
+Do you outside knowledge.
 If the answer is not present in the context, say:
 I could not find the answer in the document.
 

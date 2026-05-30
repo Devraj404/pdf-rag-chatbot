@@ -82,14 +82,12 @@ for uploaded_file in uploaded_files:
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
-if os.path.exists("embeddings.npy"):
-    embeddings = np.load("embeddings.npy")
-else:
-    embeddings = model.encode(chunks)
-    np.save("embeddings.npy", embeddings)
+embeddings = model.encode(chunks)
 
 dimension = embeddings.shape[1]
 index = faiss.IndexFlatL2(dimension)
+print("Chunks:", len(chunks))
+print("Embeddings:", len(embeddings))
 index.add(np.array(embeddings))
 
 # =========================
